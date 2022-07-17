@@ -1,24 +1,126 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .header_wrapper {
   background-color: #221f1f;
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .icon {
-    color: #ffffff;
+    color: $white;
     width: 30px;
     height: 30px;
     padding: 4px;
     border-radius: 5px;
     transition: linear 0.2s;
+    cursor: pointer;
     &:hover {
-      background-color: #4e4c4c;
+      background-color: $light-gray;
       transition: linear 0.2s;
     }
   }
 
+  .emblem {
+    display: flex;
+    align-items: center;
+    color: $white;
+    font-size: 30px;
+    font-weight: 700;
+    user-select: none;
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+    }
+  }
+
+  .search_catalog {
+    display: flex;
+  }
+
+  .menu {
+    margin-left: 200px;
+  }
+
+  .card {
+    margin-right: 200px;
+  }
+
   .ps_btn {
-    background-color: #4e4c4c;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $light-gray;
+    color: $white;
     width: 125px;
     height: 40px;
-    border-radius: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: linear 0.2s;
+    margin-right: 20px;
+    &:hover {
+      transition: linear 0.2s;
+      background: $background-ps-btn;
+    }
+
+    .psBtn_text {
+      margin-right: 10px;
+    }
+
+    .icon_btn {
+      color: $white;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .language {
+    color: $white;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    transition: linear 0.2s;
+    user-select: none;
+    font-weight: 700;
+    &:hover {
+      transition: linear 0.2s;
+      background-color: $light-gray;
+    }
+  }
+
+  .search {
+    display: flex;
+
+    .icon_find {
+      @include baseSearchPanelIcon;
+      border-radius: 5px 0 0 5px;
+      cursor: text;
+    }
+
+    .cross {
+      @include baseSearchPanelIcon;
+      cursor: pointer;
+      &:hover {
+        color: $close;
+      }
+    }
+
+    .input {
+      height: 40px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      width: 400px;
+      background-color: $white;
+    }
   }
 }

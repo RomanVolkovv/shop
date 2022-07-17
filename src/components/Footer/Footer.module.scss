@@ -1,4 +1,11 @@
+@import '../../styles/variables';
+
 .footer_wrapper {
-  background-color: coral;
-  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-header;
+  height: 30px;
+  color: $white;
+  font-size: 11px;
 }
