@@ -7,7 +7,6 @@ import { BsCart } from 'react-icons/bs';
 import { Button } from '../Button';
 import styled from './Header.module.scss';
 import clsx from 'clsx';
-//@ts-ignore
 import logo from '../../assets/react.svg';
 
 const Header = () => {
@@ -70,8 +69,20 @@ const Header = () => {
       </div>
 
       <div className={styled.language} onClick={toggleLanguage}>
-        <div className={styled.language_text}>UA</div>
-        <div className={styled.language_text}>EN</div>
+        <div
+          className={clsx(
+            styled.language_text,
+            language === 'ua' && styled.active,
+          )}>
+          UA
+        </div>
+        <div
+          className={clsx(
+            styled.language_text,
+            language === 'en' && styled.active,
+          )}>
+          EN
+        </div>
       </div>
 
       <BsCart className={clsx(styled['icon'], styled['card'])} />

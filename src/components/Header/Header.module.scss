@@ -95,6 +95,13 @@
       transition: linear 0.2s;
       background-color: $light-gray;
     }
+
+    .language_text {
+      color: $background-ps-btn;
+    }
+    .active {
+      color: $white;
+    }
   }
 
   .search {
