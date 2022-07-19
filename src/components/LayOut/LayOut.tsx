@@ -3,7 +3,7 @@ import { Sidebar } from '../Sidebar';
 import styles from './LayOut.module.scss';
 
 interface Props {
-  children: any;
+  children: React.ReactNode;
 }
 
 const LayOut: React.FC<Props> = ({ children }) => {
