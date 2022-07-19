@@ -9,39 +9,24 @@ import styled from './Header.module.scss';
 import clsx from 'clsx';
 import logo from '../../assets/react.svg';
 
-const SomeData = () => {
-  return (
-    <>
-      <h1>Some title</h1>
-      <p>some text</p>
-      <p>some text</p>
-      <p>some text</p>
-      <p>some text</p>
-      <p>some text</p>
-    </>
-  );
-};
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>('en');
 
   useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', closeModal);
-    } else {
-      window.removeEventListener('keydown', closeModal);
-    }
-    return () => window.removeEventListener('keydown', closeModal);
+    isOpen
+      ? window.addEventListener('keydown', closeModalOnPressEscape)
+      : window.removeEventListener('keydown', closeModalOnPressEscape);
+    return () => window.removeEventListener('keydown', closeModalOnPressEscape);
   }, [isOpen, setIsOpen]);
 
-  function closeModal() {
-    if ((window.event as KeyboardEvent)?.key === 'Escape') {
+  function closeModalOnPressEscape() {
+    if ((window.event as KeyboardEvent).key === 'Escape') {
       setIsOpen(false);
     }
   }
 
-  function toggleBtn() {
+  function toggleBtnCatalog() {
     setIsOpen((prevState) => !prevState);
   }
 
@@ -58,37 +43,22 @@ const Header = () => {
         <div>Sample</div>
       </div>
 
-      <div className={styled.search_catalog}>
-        <div className={styled.ps_btn} onClick={() => toggleBtn()}>
+      <Modal open={isOpen}>{/* some data for modal */}</Modal>
+
+      <div className={styled.catalog_btn_wrapper}>
+        <div className={styled.catalog_btn} onClick={toggleBtnCatalog}>
           {isOpen && <IoClose className={styled.icon_btn} />}
           {!isOpen && <FaDropbox className={styled.icon_btn} />}
           <p className={styled.psBtn_text}>Catalog</p>
         </div>
 
-        <Modal open={isOpen}>
-          <SomeData />
-        </Modal>
-
         <SearchPanel />
       </div>
 
       <div className={styled.language} onClick={toggleLanguage}>
-        <div
-          className={clsx(
-            styled.language_text,
-            language === 'ua' && styled.active,
-          )}>
-          UA
-        </div>
-        <div
-          className={clsx(
-            styled.language_text,
-            language === 'en' && styled.active,
-          )}>
-          EN
-        </div>
+        <div className={clsx(styled.language_text, language === 'ua' && styled.active)}>UA</div>
+        <div className={clsx(styled.language_text, language === 'en' && styled.active)}>EN</div>
       </div>
-
       <BsCart className={clsx(styled['icon'], styled['card'])} />
     </header>
   );

@@ -36,8 +36,38 @@
     }
   }
 
-  .search_catalog {
+  .catalog_btn_wrapper {
     display: flex;
+
+    .catalog_btn {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: $light-gray;
+      color: $white;
+      width: 125px;
+      height: 40px;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      transition: linear 0.2s;
+      margin-right: 20px;
+      z-index: 1001;
+      &:hover {
+        transition: linear 0.2s;
+        background: $background-ps-btn;
+      }
+
+      .psBtn_text {
+        margin-right: 10px;
+      }
+
+      .icon_btn {
+        color: $white;
+        width: 30px;
+        height: 30px;
+      }
+    }
   }
 
   .menu {
@@ -46,36 +76,6 @@
 
   .card {
     margin-right: 200px;
-  }
-
-  .ps_btn {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: $light-gray;
-    color: $white;
-    width: 125px;
-    height: 40px;
-    border-radius: 5px;
-    cursor: pointer;
-    user-select: none;
-    transition: linear 0.2s;
-    margin-right: 20px;
-    z-index: 1001;
-    &:hover {
-      transition: linear 0.2s;
-      background: $background-ps-btn;
-    }
-
-    .psBtn_text {
-      margin-right: 10px;
-    }
-
-    .icon_btn {
-      color: $white;
-      width: 30px;
-      height: 30px;
-    }
   }
 
   .language {
