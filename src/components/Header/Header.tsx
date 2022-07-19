@@ -1,22 +1,51 @@
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { IoClose } from 'react-icons/io5';
 import { GoSearch } from 'react-icons/go';
 import { FaDropbox } from 'react-icons/fa';
 import { BsCart } from 'react-icons/bs';
 import { Button } from '../Button';
+import { Modal } from '../Modal';
 import styled from './Header.module.scss';
 import clsx from 'clsx';
 import logo from '../../assets/react.svg';
 
+const SomeData = () => {
+  return (
+    <>
+      <h1>Some title</h1>
+      <p>some text</p>
+      <p>some text</p>
+      <p>some text</p>
+      <p>some text</p>
+      <p>some text</p>
+    </>
+  );
+};
+
 const Header = () => {
-  const [togglePsBtn, setTogglePsBtn] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>('en');
   const [searchField, setSearchField] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    if (isOpen) {
+      window.addEventListener('keydown', closeModal);
+    } else {
+      window.removeEventListener('keydown', closeModal);
+    }
+    return () => window.removeEventListener('keydown', closeModal);
+  }, [isOpen, setIsOpen]);
+
+  function closeModal() {
+    if ((window.event as KeyboardEvent)?.key === 'Escape') {
+      setIsOpen(false);
+    }
+  }
+
   function toggleBtn() {
-    setTogglePsBtn((prevState) => !prevState);
+    setIsOpen((prevState) => !prevState);
   }
 
   function toggleLanguage() {
@@ -49,10 +78,16 @@ const Header = () => {
 
       <div className={styled.search_catalog}>
         <div className={styled.ps_btn} onClick={() => toggleBtn()}>
-          {togglePsBtn && <IoClose className={styled.icon_btn} />}
-          {!togglePsBtn && <FaDropbox className={styled.icon_btn} />}
+          {isOpen && <IoClose className={styled.icon_btn} />}
+          {!isOpen && <FaDropbox className={styled.icon_btn} />}
           <p className={styled.psBtn_text}>Catalog</p>
         </div>
+
+        {/*//!================================= MODAL =========================*/}
+
+        <Modal open={isOpen}>
+          <SomeData />
+        </Modal>
 
         <div className={styled.search}>
           <GoSearch className={styled.icon_find} onClick={focus} />
