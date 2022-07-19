@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import React from 'react';
 import styled from './Modal.module.scss';
 
 interface Props {
   open: boolean;
-  children: any;
+  children: React.ReactNode;
 }
 
-const Modal: FC<Props> = ({ open, children }) => {
+const Modal: React.FC<Props> = ({ open, children }) => {
   if (!open) return null;
 
   return (
