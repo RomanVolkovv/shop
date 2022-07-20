@@ -8,13 +8,26 @@
 
   a {
     text-decoration: none;
-    margin: 5px 0 0 35px;
-    color: $white;
-    font-size: 20px;
+    border-radius: 5px 0 0 5px;
+    margin: 10px 0 0 20px;
+    padding: 3px;
+    color: $light-green;
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 20px;
+    transition: linear 0.2s;
+    background-color: $light-gray;
+    user-select: none;
+    &:hover {
+      transition: linear 0.2s;
+      background-color: $hover-btn-sidebar;
+      border-radius: 5px 0 0 5px;
+      box-shadow: -1px 1px 8px $hover-btn-sidebar;
+    }
   }
 
   .activeStyle {
     color: $white;
-    background-color: red;
+    background-color: $background-header;
   }
 }

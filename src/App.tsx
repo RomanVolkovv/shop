@@ -5,6 +5,7 @@ import { Home } from './pages/HomePage';
 import { Settings } from './pages/SettingsPage';
 import { LayOut } from './components/LayOut';
 import { routes } from './utils/route/route';
+import { Users } from './pages/Users';
 const App = () => {
   return (
     <div>
@@ -12,6 +13,7 @@ const App = () => {
       <LayOut>
         <Routes>
           <Route path={routes.home_page} element={<Home />} />
+          <Route path={routes.users_page} element={<Users />} />
           <Route path={routes.settings_page} element={<Settings />} />
         </Routes>
       </LayOut>

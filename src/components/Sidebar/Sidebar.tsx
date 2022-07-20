@@ -3,8 +3,9 @@ import { routes } from '../../utils/route/route';
 import styled from './Sidebar.module.scss';
 
 const link = [
-  { name: 'Home', route: routes.home_page },
-  { name: 'Settings', route: routes.settings_page },
+  { name: 'HOME', route: routes.home_page },
+  { name: 'USERS', route: routes.users_page },
+  { name: 'SETTINGS', route: routes.settings_page },
 ];
 
 const Sidebar = () => {
