@@ -4,15 +4,15 @@ import { Header } from './components/Header';
 import { Home } from './pages/HomePage';
 import { Settings } from './pages/SettingsPage';
 import { LayOut } from './components/LayOut';
-
+import { routes } from './utils/route/route';
 const App = () => {
   return (
     <div>
       <Header />
       <LayOut>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='settings' element={<Settings />} />
+          <Route path={routes.home_page} element={<Home />} />
+          <Route path={routes.settings_page} element={<Settings />} />
         </Routes>
       </LayOut>
       <Footer />

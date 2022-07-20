@@ -8,10 +8,13 @@ import { SearchPanel } from '../SearchPanel';
 import styled from './Header.module.scss';
 import clsx from 'clsx';
 import logo from '../../assets/react.svg';
+import { useDispatch } from 'react-redux';
+import { toggleSidebar } from '../../redux/sidebarSlice';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>('en');
+  const dispatch = useDispatch();
 
   useEffect(() => {
     isOpen
@@ -36,7 +39,11 @@ const Header = () => {
 
   return (
     <header className={styled.header_wrapper}>
-      <AiOutlineMenu className={clsx(styled['icon'], styled['menu'])} />
+      <AiOutlineMenu
+        className={clsx(styled['icon'], styled['menu'])}
+        //@ts-ignore
+        onClick={() => dispatch(toggleSidebar())}
+      />
 
       <div className={styled.emblem}>
         <img src={logo} alt='logo' />

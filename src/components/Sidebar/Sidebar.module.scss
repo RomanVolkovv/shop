@@ -1,3 +1,20 @@
+@import '../../styles/variables.scss';
+
 .sidebar_wrapper {
-  background-color: #00a046;
+  background-color: $green;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    margin: 5px 0 0 35px;
+    color: $white;
+    font-size: 20px;
+  }
+
+  .activeStyle {
+    color: $white;
+    background-color: red;
+  }
 }
