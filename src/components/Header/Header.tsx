@@ -3,13 +3,16 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { IoClose } from 'react-icons/io5';
 import { FaDropbox } from 'react-icons/fa';
 import { BsCart } from 'react-icons/bs';
+import { FaRegUserCircle } from 'react-icons/fa';
 import { Modal } from '../Modal';
 import { SearchPanel } from '../SearchPanel';
+import { ModalAuth } from '../../pages/LoginPage/ModalAuth';
 import styled from './Header.module.scss';
 import clsx from 'clsx';
 import logo from '../../assets/react.svg';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/sidebarSlice';
+import { openAuthModal } from '../../redux/authSlice';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -66,7 +69,15 @@ const Header = () => {
         <div className={clsx(styled.language_text, language === 'ua' && styled.active)}>UA</div>
         <div className={clsx(styled.language_text, language === 'en' && styled.active)}>EN</div>
       </div>
+
       <BsCart className={clsx(styled['icon'], styled['card'])} />
+
+      {/* @ts-ignore */}
+      <FaRegUserCircle className={styled.icon} onClick={() => dispatch(openAuthModal())} />
+      <ModalAuth>
+        {/* @ts-ignore */}
+        <ModalAuth />
+      </ModalAuth>
     </header>
   );
 };

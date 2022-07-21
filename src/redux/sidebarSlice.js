@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const todoSlice = createSlice({
+const sidebar = createSlice({
   name: 'sidebar',
   initialState: {
     isOpenSidebar: false,
@@ -12,5 +12,6 @@ const todoSlice = createSlice({
   },
 });
 
-export const { toggleSidebar } = todoSlice.actions;
-export default todoSlice.reducer;
+export const { toggleSidebar } = sidebar.actions;
+
+export default sidebar.reducer;
