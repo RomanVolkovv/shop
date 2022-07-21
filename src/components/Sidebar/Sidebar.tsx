@@ -5,6 +5,7 @@ import styled from './Sidebar.module.scss';
 const link = [
   { name: 'HOME', route: routes.home_page },
   { name: 'USERS', route: routes.users_page },
+  { name: 'LOGIN', route: routes.login_page },
   { name: 'SETTINGS', route: routes.settings_page },
 ];
 
