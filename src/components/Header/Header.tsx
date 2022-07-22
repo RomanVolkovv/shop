@@ -13,6 +13,7 @@ import logo from '../../assets/react.svg';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/sidebarSlice';
 import { openAuthModal } from '../../redux/authSlice';
+import { LoginPage } from '../../pages/LoginPage';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -76,7 +77,7 @@ const Header = () => {
       <FaRegUserCircle className={styled.icon} onClick={() => dispatch(openAuthModal())} />
       <ModalAuth>
         {/* @ts-ignore */}
-        <ModalAuth />
+        <LoginPage />
       </ModalAuth>
     </header>
   );
