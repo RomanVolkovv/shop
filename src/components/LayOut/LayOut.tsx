@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hook';
 import { Sidebar } from '../Sidebar';
 import styled from './LayOut.module.scss';
 
@@ -8,8 +8,7 @@ interface Props {
 }
 
 const LayOut: React.FC<Props> = ({ children }) => {
-  //@ts-ignore
-  const isOpenSidebar = useSelector((state) => state.sidebar.isOpenSidebar);
+  const isOpenSidebar = useAppSelector((state) => state.sidebar.isOpenSidebar);
 
   return (
     <div className={styled.layout}>

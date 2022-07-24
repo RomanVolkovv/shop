@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../hook';
 import { closeAuthModal } from '../../../redux/authSlice';
 import styled from './ModalAuth.module.scss';
 
@@ -8,9 +8,8 @@ interface Props {
 }
 
 const ModalAuth: FC<Props> = ({ children }) => {
-  //@ts-ignore
-  const isOpenAuth = useSelector((state) => state.auth.isOpenAuthModal);
-  const dispatch = useDispatch();
+  const isOpenAuth = useAppSelector((state) => state.auth.isOpenAuthModal);
+  const dispatch = useAppDispatch();
   if (!isOpenAuth) return null;
 
   return (
@@ -18,7 +17,6 @@ const ModalAuth: FC<Props> = ({ children }) => {
       <div className={styled.overlay} />
       <div className={styled.modal}>
         {children}
-        {/* @ts-ignore */}
         <button onClick={() => dispatch(closeAuthModal())}>x</button>
       </div>
     </>

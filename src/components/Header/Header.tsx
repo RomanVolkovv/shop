@@ -10,15 +10,15 @@ import { ModalAuth } from '../../pages/LoginPage/ModalAuth';
 import styled from './Header.module.scss';
 import clsx from 'clsx';
 import logo from '../../assets/react.svg';
-import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../../redux/sidebarSlice';
 import { openAuthModal } from '../../redux/authSlice';
 import { LoginPage } from '../../pages/LoginPage';
+import { useAppDispatch } from '../../hook';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [language, setLanguage] = useState<string>('en');
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     isOpen
@@ -45,7 +45,6 @@ const Header = () => {
     <header className={styled.header_wrapper}>
       <AiOutlineMenu
         className={clsx(styled['icon'], styled['menu'])}
-        //@ts-ignore
         onClick={() => dispatch(toggleSidebar())}
       />
 
@@ -73,10 +72,8 @@ const Header = () => {
 
       <BsCart className={clsx(styled['icon'], styled['card'])} />
 
-      {/* @ts-ignore */}
       <FaRegUserCircle className={styled.icon} onClick={() => dispatch(openAuthModal())} />
       <ModalAuth>
-        {/* @ts-ignore */}
         <LoginPage />
       </ModalAuth>
     </header>
