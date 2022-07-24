@@ -2,6 +2,7 @@ import styled from './LoginPage.module.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import TextError from './TextError';
+import clsx from 'clsx';
 
 //todo email or name
 
@@ -21,21 +22,15 @@ const validationSchema = Yup.object({
 
 const LoginPage = () => {
   return (
-    <Formik
-      className={styled.login_wrapper}
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}>
-      <Form>
-        <div>
-          <label htmlFor='name'>E-mail</label>
-          <Field type='email' id='email' name='email' />
-          <ErrorMessage name='name' component={TextError} />
+    <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+      <Form className={styled.form_wrapper}>
+        <div className={clsx(styled.input_form, styled.email)}>
+          <Field placeholder='email' type='email' id='email' name='email' />
+          <ErrorMessage name='email' component={TextError} />
         </div>
 
-        <div>
-          <label htmlFor='password'>Password</label>
-          <Field type='password' id='password' name='password' />
+        <div className={clsx(styled.input_form, styled.password)}>
+          <Field placeholder='password' type='password' id='password' name='password' />
           <ErrorMessage name='password' component={TextError} />
         </div>
 
