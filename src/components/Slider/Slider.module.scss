@@ -1,0 +1,15 @@
+.slider_wrapper {
+  .internal_block {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 200px;
+
+    img {
+      width: 200px;
+      max-height: 100px;
+      border-radius: 10px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+  }
+}
