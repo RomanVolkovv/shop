@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Sidebar } from '../Sidebar';
-import styles from './LayOut.module.scss';
+import styled from './LayOut.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -12,9 +12,11 @@ const LayOut: React.FC<Props> = ({ children }) => {
   const isOpenSidebar = useSelector((state) => state.sidebar.isOpenSidebar);
 
   return (
-    <div className={styles.layout}>
+    <div className={styled.layout}>
       {isOpenSidebar && <Sidebar />}
-      <div>{children}</div>
+      <div className={styled.children}>
+        <div>{children}</div>
+      </div>
     </div>
   );
 };

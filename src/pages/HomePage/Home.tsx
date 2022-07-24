@@ -1,11 +1,10 @@
 import { Slider } from '../../components/Slider';
+import styled from './Home.module.scss';
 
 const Home = () => {
   return (
-    <div>
+    <div className={styled.home_wrapper}>
       <Slider />
-
-      <p>home page</p>
     </div>
   );
 };

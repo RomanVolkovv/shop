@@ -6,5 +6,6 @@ declare module '*.svg' {
   const content: any;
   export default content;
 }
-//jpg typescript
+//jpg, png typescript
 declare module '*.jpg';
+declare module '*.png';
