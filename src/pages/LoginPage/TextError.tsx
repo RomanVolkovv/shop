@@ -1,7 +1,8 @@
-import React from 'react';
+import { FC } from 'react';
+import styled from './TextError.module.scss';
 
-const TextError = (props: any) => {
-  return <div className='error'>{props.children}</div>;
+const TextError: FC<any> = ({ children }) => {
+  return <div className={styled.error}>{children}</div>;
 };
 
 export default TextError;

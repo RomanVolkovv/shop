@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.error {
+  background-color: $bgColorError;
+  color: $errorColor;
+  font-size: 12px;
+  border-radius: 3px;
+  user-select: none;
+  text-align: center;
+  max-width: 202px;
+}

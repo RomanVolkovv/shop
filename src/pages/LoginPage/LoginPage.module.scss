@@ -2,16 +2,18 @@
 
 .form_wrapper {
   font-size: 20px;
-  background-color: red;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .input_form {
     input {
       font-size: 18px;
-      border: 2px solid $green;
-      border-radius: 2px;
+      border: 1px solid $background-ps-btn;
+      border-radius: 4px;
       outline: none;
+      width: 200px;
       &::-webkit-input-placeholder {
-        color: red;
+        color: $background-ps-btn;
       }
     }
   }
@@ -20,5 +22,6 @@
   }
 
   .password {
+    margin-top: 5px;
   }
 }
