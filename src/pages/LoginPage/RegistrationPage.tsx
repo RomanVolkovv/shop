@@ -2,10 +2,10 @@ import styled from './LoginPage.module.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import TextError from './TextError';
 import clsx from 'clsx';
-import { validationSchemaLogin } from '../../utils/validation';
 import { auth } from '../../firebase-config';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useState } from 'react';
+import { validationSchemaRegister } from '../../utils/validation';
 
 const initialValues = {
   name: '',
@@ -37,7 +37,7 @@ const RegistrationForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchemaLogin}
+      validationSchema={validationSchemaRegister}
       onSubmit={(value) => register(value.email, value.password, value.name, value.phoneNumber)}>
       <Form className={styled.form_wrapper}>
         <div className={clsx(styled.input_form, styled.name)}>

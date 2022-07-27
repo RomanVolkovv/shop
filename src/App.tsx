@@ -8,6 +8,7 @@ import { routes } from './utils/route/route';
 import { Users } from './pages/Users';
 import { LoginPage } from './pages/LoginPage';
 import RegistrationPage from './pages/LoginPage/RegistrationPage';
+
 const App = () => {
   return (
     <div>

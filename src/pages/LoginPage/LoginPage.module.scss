@@ -7,13 +7,15 @@
   justify-content: center;
   .input_form {
     input {
-      font-size: 18px;
+      font-size: 16px;
       border: 1px solid $background-ps-btn;
       border-radius: 4px;
       outline: none;
       width: 200px;
+      padding-left: 5px;
       &::-webkit-input-placeholder {
         color: $background-ps-btn;
+        font-size: 14px;
       }
     }
   }
@@ -22,6 +24,5 @@
   }
 
   .password {
-
   }
 }
