@@ -6,6 +6,7 @@ const link = [
   { name: 'HOME', route: routes.home_page },
   { name: 'USERS', route: routes.users_page },
   { name: 'LOGIN', route: routes.login_page },
+  { name: 'REGISTRATION', route: routes.register_page },
   { name: 'SETTINGS', route: routes.settings_page },
 ];
 
