@@ -14,6 +14,7 @@ import { toggleSidebar } from '../../redux/sidebarSlice';
 import { openAuthModal } from '../../redux/authSlice';
 import { LoginPage } from '../../pages/LoginPage';
 import { useAppDispatch } from '../../hook';
+import AuthWrapper from '../../pages/LoginPage/AuthWrapper';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -74,7 +75,7 @@ const Header = () => {
 
       <FaRegUserCircle className={styled.icon} onClick={() => dispatch(openAuthModal())} />
       <ModalAuth>
-        <LoginPage />
+        <AuthWrapper />
       </ModalAuth>
     </header>
   );

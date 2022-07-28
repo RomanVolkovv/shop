@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Button } from '../../../components/Button';
+import { SwitcherButton } from '../../../components/SwitcherButton';
 import { useAppDispatch, useAppSelector } from '../../../hook';
 import { closeAuthModal } from '../../../redux/authSlice';
 import styled from './ModalAuth.module.scss';
@@ -17,6 +18,7 @@ const ModalAuth: FC<Props> = ({ children }) => {
     <>
       <div className={styled.overlay} />
       <div className={styled.modal}>
+        <SwitcherButton />
         {children}
         <Button type='submit' title='Close' onClick={() => dispatch(closeAuthModal())}></Button>
       </div>

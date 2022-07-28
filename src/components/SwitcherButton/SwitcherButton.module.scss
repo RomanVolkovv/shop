@@ -1,0 +1,25 @@
+.toggleBtn {
+  width: 200px;
+  height: 40px;
+  background-color: aqua;
+  border-radius: 5px;
+  display: flex;
+  .btn {
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: linear 0.2s;
+    color: black;
+    font-weight: 700;
+    &:hover {
+      transition: linear 0.2s;
+      background-color: red;
+    }
+  }
+}
